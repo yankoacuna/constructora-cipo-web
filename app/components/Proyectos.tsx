@@ -28,7 +28,6 @@ const IG_PROJECTS = [
   { id: "CogD0-UA04Y", url: "https://www.instagram.com/p/CogD0-UA04Y/", category: "Construcción", title: "Ampliación casa" },
 ];
 
-const CATEGORIES = ["Todos", "Construcción", "Mueblería", "Obras Exteriores", "Limpieza", "Climatización"];
 
 interface ProyectosProps {
   initialProjects?: Project[] | null;
@@ -42,6 +41,10 @@ export default function Proyectos({ initialProjects }: ProyectosProps) {
 
   // Fallback to local data if the spreadsheet is empty or fails
   const dataToUse = initialProjects && initialProjects.length > 0 ? initialProjects : IG_PROJECTS;
+
+  // Extraer categorías únicas dinámicamente de los proyectos disponibles
+  const uniqueCategories = Array.from(new Set(dataToUse.map((p) => p.category))).filter(Boolean);
+  const dynamicCategories = ["Todos", ...uniqueCategories];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -96,7 +99,7 @@ export default function Proyectos({ initialProjects }: ProyectosProps) {
 
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {CATEGORIES.map((cat) => (
+          {dynamicCategories.map((cat) => (
             <button
               key={cat}
               id={`filter-${cat.toLowerCase().replace(/\s+/g, "-")}`}

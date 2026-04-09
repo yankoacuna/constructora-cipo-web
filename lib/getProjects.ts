@@ -16,7 +16,7 @@ export async function getProjects(): Promise<Project[] | null> {
   }
 
   try {
-    const res = await fetch(csvUrl, { next: { revalidate: 3600 } });
+    const res = await fetch(csvUrl, { next: { revalidate: 0 } });
     
     if (!res.ok) {
       throw new Error(`Failed to fetch CSV: ${res.status} ${res.statusText}`);

@@ -7,6 +7,8 @@ import Contacto from "./components/Contacto";
 import Footer from "./components/Footer";
 import { getProjects } from "@/lib/getProjects";
 
+export const runtime = 'edge';
+
 export default async function HomePage() {
   const projectsData = await getProjects();
 

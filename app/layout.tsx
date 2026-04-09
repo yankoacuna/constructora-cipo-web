@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { SITE_CONFIG } from "@/lib/siteConfig";
+import CipoBot from "./components/CipoBot";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -47,6 +48,7 @@ export default function RootLayout({
     >
       <body className="min-h-full antialiased bg-[#020205] text-[#f5f0e8]">
         {children}
+        <CipoBot />
       </body>
     </html>
   );
