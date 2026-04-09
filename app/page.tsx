@@ -5,15 +5,18 @@ import Servicios from "./components/Servicios";
 import Proyectos from "./components/Proyectos";
 import Contacto from "./components/Contacto";
 import Footer from "./components/Footer";
+import { getProjects } from "@/lib/getProjects";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const projectsData = await getProjects();
+
   return (
     <main className="relative">
       <Navbar />
       <Hero />
       <Nosotros />
       <Servicios />
-      <Proyectos />
+      <Proyectos initialProjects={projectsData} />
       <Contacto />
       <Footer />
     </main>

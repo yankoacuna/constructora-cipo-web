@@ -83,10 +83,10 @@ export default function Nosotros() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020205]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020205]/80 via-transparent to-[#020205]/30" />
 
               {/* Badge sobre imagen */}
-              <div className="absolute bottom-6 left-6 right-6 glass-card rounded-xl p-4">
+              <div className="absolute top-6 left-6 max-w-max glass-card rounded-xl p-3 pr-5">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center flex-shrink-0">
                     <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -137,17 +137,15 @@ export default function Nosotros() {
             >
               Somos <strong className="text-white font-semibold">Constructora Cipo</strong>, una empresa
               con sede en <strong className="text-amber-400 font-semibold">Talca, Chile</strong>, dedicada
-              a la construcción en general y a la fabricación de muebles en línea plana. Nacimos con
-              la convicción de que toda persona merece un espacio construido con excelencia,
-              honestidad y atención al detalle.
+              a la construcción en general, mueblería en línea plana, climatización y servicios de limpieza integral.
             </p>
             <p
               data-animate
               className="opacity-0 text-white/55 text-base leading-relaxed"
             >
               Trabajamos codo a codo con nuestros clientes para transformar sus ideas en realidades
-              funcionales. Desde obras menores, radiers y remodelaciones, hasta el armado e instalación
-              de muebles de melamina a medida, asegurando terminaciones de primer nivel.
+              funcionales. Desde obras civiles, remodelaciones y muebles a medida, hasta la total
+              recuperación de sus espacios y vehículos con limpieza profunda.
             </p>
 
             {/* Values */}

@@ -1,57 +1,47 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
+import type { Project } from "@/lib/getProjects";
 
-const PROJECTS = [
-  {
-    id: "casa-moderna-talca",
-    image: "/project_house.webp",
-    title: "Casa Moderna",
-    location: "Talca, VII Región",
-    category: "Construcción Habitacional",
-    year: "2024",
-  },
-  {
-    id: "edificio-comercial",
-    image: "/project_commercial.webp",
-    title: "Edificio Comercial",
-    location: "Talca Centro",
-    category: "Obras Civiles",
-    year: "2024",
-  },
-  {
-    id: "remodelacion-premium",
-    image: "/project_remodel.webp",
-    title: "Remodelación Premium",
-    location: "Sector Oriente, Talca",
-    category: "Remodelaciones",
-    year: "2025",
-  },
-  {
-    id: "piscina-premium",
-    image: "/project_pool.webp",
-    title: "Piscina Moderna",
-    location: "Parcela sector Florida",
-    category: "Obras Exteriores",
-    year: "2025",
-  },
-  {
-    id: "cocina-melamina",
-    image: "/project_furniture.webp",
-    title: "Cocina a Medida",
-    location: "Departamento Centro, Talca",
-    category: "Mueblería",
-    year: "2024",
-  },
+const IG_PROJECTS = [
+  { id: "DUog0USj-1B", url: "https://www.instagram.com/p/DUog0USj-1B/", category: "Obras Exteriores", title: "Cañería subterránea" },
+  { id: "DUByLW2j8hY", url: "https://www.instagram.com/p/DUByLW2j8hY/", category: "Construcción", title: "Bodega parcela" },
+  { id: "DRvoI5pEd2d", url: "https://www.instagram.com/p/DRvoI5pEd2d/", category: "Mueblería", title: "Rack TV Talca" },
+  { id: "DRW3fuekWXd", url: "https://www.instagram.com/p/DRW3fuekWXd/", category: "Obras Exteriores", title: "Piscina hormigón" },
+  { id: "DQLFacdkQaj", url: "https://www.instagram.com/p/DQLFacdkQaj/", category: "Mueblería", title: "Escritorio flotante" },
+  { id: "DP1xlaKj4NR", url: "https://www.instagram.com/p/DP1xlaKj4NR/", category: "Mueblería", title: "Mueble rack TV" },
+  { id: "DPpSbIwj831", url: "https://www.instagram.com/p/DPpSbIwj831/", category: "Mueblería", title: "Diseño walk-in closet" },
+  { id: "DNzUGZ4YtOT", url: "https://www.instagram.com/p/DNzUGZ4YtOT/", category: "Mueblería", title: "Armado walk-in clóset" },
+  { id: "DKsvXNzPMIX", url: "https://www.instagram.com/p/DKsvXNzPMIX/", category: "Mueblería", title: "Centro de TV" },
+  { id: "DKLbLwQxIjn", url: "https://www.instagram.com/p/DKLbLwQxIjn/", category: "Construcción", title: "Techo logia" },
+  { id: "DIM4a5vvNr6", url: "https://www.instagram.com/p/DIM4a5vvNr6/", category: "Limpieza", title: "Limpieza sillones" },
+  { id: "DGrBD2cvQK6", url: "https://www.instagram.com/p/DGrBD2cvQK6/", category: "Climatización", title: "AC Midea Inverter" },
+  { id: "DGPEmz4vJZ6", url: "https://www.instagram.com/p/DGPEmz4vJZ6/", category: "Construcción", title: "Ampliación lucarna" },
+  { id: "DC2-onrRvTI", url: "https://www.instagram.com/p/DC2-onrRvTI/", category: "Mueblería", title: "Proyecto cocina" },
+  { id: "DCpx2zqPYHg", url: "https://www.instagram.com/p/DCpx2zqPYHg/", category: "Limpieza", title: "Limpieza integral" },
+  { id: "DBcRc-fvzD6", url: "https://www.instagram.com/p/DBcRc-fvzD6/", category: "Limpieza", title: "Limpieza de sofá" },
+  { id: "DBSbaz8Rmn0", url: "https://www.instagram.com/p/DBSbaz8Rmn0/", category: "Mueblería", title: "Cocina Colbún" },
+  { id: "C191x7qrluP", url: "https://www.instagram.com/p/C191x7qrluP/", category: "Construcción", title: "Ampliación segundo piso" },
+  { id: "CzfLOJrrzZT", url: "https://www.instagram.com/p/CzfLOJrrzZT/", category: "Mueblería", title: "Proyecto cocina" },
+  { id: "CzO4PqEOjkm", url: "https://www.instagram.com/p/CzO4PqEOjkm/", category: "Construcción", title: "Trabajo portón" },
+  { id: "CyT6YLLuqVH", url: "https://www.instagram.com/p/CyT6YLLuqVH/", category: "Mueblería", title: "Proyecto cocina" },
+  { id: "CogD0-UA04Y", url: "https://www.instagram.com/p/CogD0-UA04Y/", category: "Construcción", title: "Ampliación casa" },
 ];
 
-const CATEGORIES = ["Todos", "Construcción Habitacional", "Obras Civiles", "Remodelaciones", "Obras Exteriores", "Mueblería"];
+const CATEGORIES = ["Todos", "Construcción", "Mueblería", "Obras Exteriores", "Limpieza", "Climatización"];
 
-export default function Proyectos() {
+interface ProyectosProps {
+  initialProjects?: Project[] | null;
+}
+
+export default function Proyectos({ initialProjects }: ProyectosProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState("Todos");
   const [visible, setVisible] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  // Fallback to local data if the spreadsheet is empty or fails
+  const dataToUse = initialProjects && initialProjects.length > 0 ? initialProjects : IG_PROJECTS;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -67,8 +57,11 @@ export default function Proyectos() {
 
   const filtered =
     activeCategory === "Todos"
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.category === activeCategory);
+      ? dataToUse
+      : dataToUse.filter((p) => p.category === activeCategory);
+
+  const displayedProjects = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
 
   return (
     <section id="proyectos" className="relative py-28 overflow-hidden" ref={sectionRef}>
@@ -107,7 +100,10 @@ export default function Proyectos() {
             <button
               key={cat}
               id={`filter-${cat.toLowerCase().replace(/\s+/g, "-")}`}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => {
+                setActiveCategory(cat);
+                setVisibleCount(6);
+              }}
               className={`px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${activeCategory === cat
                 ? "bg-gradient-to-r from-amber-400 to-amber-600 text-black shadow-lg shadow-amber-500/20"
                 : "glass-card text-white/60 hover:text-white hover:border-amber-400/30"
@@ -119,60 +115,42 @@ export default function Proyectos() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((project, i) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {displayedProjects.map((project, i) => (
             <article
               key={project.id}
               id={`project-${project.id}`}
-              className="group relative rounded-2xl overflow-hidden glass-card hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-500 hover:-translate-y-1"
+              className="group relative rounded-2xl overflow-hidden glass-card hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-500 flex flex-col items-center justify-center bg-white"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(32px)",
-                transition: `opacity 0.6s ease ${i * 120}ms, transform 0.6s ease ${i * 120}ms`,
+                transition: `opacity 0.6s ease ${i * 80}ms, transform 0.6s ease ${i * 80}ms`,
+                // Embed of Instagram generally takes a tall aspect ratio
+                minHeight: "480px"
               }}
             >
-              {/* Image */}
-              <div className="relative aspect-video overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-108"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f18] via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
-
-                {/* Category badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-400/90 text-black">
-                    {project.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Info */}
-              <div className="p-5">
-                <div className="flex items-start justify-between gap-2">
-                  <h3
-                    className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors duration-300"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    {project.title}
-                  </h3>
-                  <span className="text-amber-400/60 text-sm font-medium flex-shrink-0">
-                    {project.year}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 mt-2 text-white/40 text-sm">
-                  <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
-                  </svg>
-                  <span>{project.location}</span>
-                </div>
-              </div>
+              <iframe
+                title={`Instagram post: ${project.title}`}
+                src={`${project.url}embed`}
+                className="w-full h-full border-none m-0 p-0"
+                allow="encrypted-media"
+                style={{ flex: 1, minHeight: "480px" }}
+              />
             </article>
           ))}
         </div>
+
+        {/* Load More */}
+        {hasMore && (
+          <div className="flex justify-center mt-12">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 6)}
+              className="px-6 py-2.5 text-sm font-semibold text-white/70 border border-white/20 rounded-full hover:border-amber-400/50 hover:text-amber-400 hover:bg-amber-400/5 transition-all duration-300"
+            >
+              Ver más proyectos
+            </button>
+          </div>
+        )}
 
         {/* CTA */}
         <div className="text-center mt-14">

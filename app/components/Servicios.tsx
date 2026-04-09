@@ -4,28 +4,16 @@ import { useRef, useEffect } from "react";
 
 const SERVICES = [
   {
-    id: "remodelaciones",
+    id: "construccion-remodelacion",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
     ),
-    title: "Remodelaciones",
+    title: "Construcción y Remodelaciones",
     description:
-      "Transformamos tu espacio existente con diseño moderno y materiales de primera calidad. Cocinas, baños, salones y más.",
-    features: ["Diseño personalizado", "Materiales premium", "Mano de obra calificada"],
-  },
-  {
-    id: "habitacional",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    ),
-    title: "Construcción Habitacional",
-    description:
-      "Construimos tu hogar desde los cimientos. Casas unifamiliares y multifamiliares con estructura sólida y diseño arquitectónico.",
-    features: ["Planos y permisos", "Construcción llave en mano", "Asesoría técnica"],
+      "Transformamos o construimos tu hogar con materiales de calidad. Desde techos, radier, ampliaciones hasta casas llave en mano.",
+    features: ["Ampliaciones de casas", "Obras civiles menores", "Remodelación total"],
   },
   {
     id: "muebles-linea-plana",
@@ -36,22 +24,34 @@ const SERVICES = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12v8" />
       </svg>
     ),
-    title: "Muebles Línea Plana",
+    title: "Muebles en Línea Plana",
     description:
-      "Diseño y fabricación de mobiliario a medida en melamina. Closets, cocinas, vanitorios y muebles funcionales para optimizar tus espacios.",
+      "Diseño y fabricación de mobiliario a medida en melamina. Closets, cocinas, rack TV y vanitorios funcionales para optimizar tus espacios.",
     features: ["Diseño personalizado", "Herrajes de calidad", "Armado en domicilio"],
   },
   {
-    id: "ampliaciones",
+    id: "limpieza-mantenimiento",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
       </svg>
     ),
-    title: "Ampliaciones",
+    title: "Aseo y Limpieza Profunda",
     description:
-      "¿Necesitas más espacio? Ampliamos tu vivienda o local comercial de forma armoniosa, respetando la estructura existente.",
-    features: ["Estudio de factibilidad", "Integración arquitectónica", "Rápida ejecución"],
+      "Servicio especializado de limpieza integral. Recuperamos la apariencia de tus muebles de tela y vehículos con maquinaria profesional.",
+    features: ["Lavado de alfombras", "Limpieza de sillones", "Limpieza tapiz interior auto"],
+  },
+  {
+    id: "climatizacion",
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.792 0-5.484-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+      </svg>
+    ),
+    title: "Climatización e Instalaciones",
+    description:
+      "Venta, instalación y mantenimiento de equipos de Aire Acondicionado para mantener tus espacios confortables todo el año.",
+    features: ["Equipos Inverter", "Instalación profesional", "Mantenimiento preventivo"],
   },
 ];
 
