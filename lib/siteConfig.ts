@@ -14,11 +14,11 @@ export const SITE_CONFIG = {
   /** Contacto */
   phone: {
     /** Formato para mostrar en pantalla */
-    display: "+56 9 8957 0754",
+    display: "+56 9 7148 0952",
     /** Formato para href tel: */
-    href: "+56989570754",
+    href: "+56971480952",
     /** Solo dígitos para WhatsApp API (sin el +) */
-    whatsapp: "56989570754",
+    whatsapp: "56971480952",
   },
 
   email: "contacto@constructoracipo.cl",

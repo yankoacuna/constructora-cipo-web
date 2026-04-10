@@ -44,6 +44,7 @@ export default function Hero() {
           alt="Obra de construcción Constructora Cipo"
           fill
           priority
+          quality={60}
           className="object-cover object-center"
           sizes="100vw"
         />
@@ -106,7 +107,7 @@ export default function Hero() {
           className="mt-8 text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up"
           style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
         >
-          Somos una empresa dedicada a construcción en general y muebles en línea plana 
+          Somos una empresa dedicada a construcción en general y muebles en línea plana
           con atención al detalle y un fuerte compromiso con cada uno de nuestros clientes.
         </p>
 
@@ -170,17 +171,6 @@ export default function Hero() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-0 animate-fade-in-up"
-        style={{ animationDelay: "1s", animationFillMode: "forwards" }}
-      >
-        <span className="text-white/30 text-xs tracking-widest uppercase">
-          Scroll
-        </span>
-        <div className="w-px h-12 bg-gradient-to-b from-amber-400/60 to-transparent animate-float" />
       </div>
     </section>
   );

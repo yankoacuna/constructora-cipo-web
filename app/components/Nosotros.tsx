@@ -80,6 +80,7 @@ export default function Nosotros() {
                 src="/logo_cipo.jpeg"
                 alt="Equipo Constructora Cipo"
                 fill
+                quality={60}
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />

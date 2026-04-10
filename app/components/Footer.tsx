@@ -28,6 +28,7 @@ export default function Footer() {
                   src="/logo_cipo_mini.jpeg"
                   alt="Logo Constructora Cipo"
                   fill
+                  quality={60}
                   className="object-cover"
                   sizes="40px"
                 />
@@ -47,7 +48,7 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+            <p className="text-white/70 text-sm leading-relaxed max-w-xs">
               Empresa especializada en construcción, remodelación y obras civiles.
               Con sede en <span className="text-amber-400/70">Talca, Chile</span>, construimos
               el espacio que mereces.
@@ -91,7 +92,7 @@ export default function Footer() {
                 <li key={href}>
                   <a
                     href={href}
-                    className="text-sm text-white/40 hover:text-amber-400 transition-colors duration-200"
+                    className="text-sm text-white/70 hover:text-amber-400 transition-colors duration-200"
                   >
                     {label}
                   </a>
@@ -105,7 +106,7 @@ export default function Footer() {
             <h3 className="text-xs font-bold tracking-[0.2em] uppercase text-amber-400/70 mb-5">
               Contacto Rápido
             </h3>
-            <ul className="flex flex-col gap-3 text-sm text-white/40">
+            <ul className="flex flex-col gap-3 text-sm text-white/70">
               <li className="flex items-center gap-2">
                 <svg className="w-3.5 h-3.5 text-amber-400/60 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
@@ -134,10 +135,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/5 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/25 text-xs">
+          <p className="text-white/50 text-xs">
             © {CURRENT_YEAR} Constructora Cipo. Todos los derechos reservados.
           </p>
-          <p className="text-white/25 text-xs">
+          <p className="text-white/50 text-xs">
             Talca, Región del Maule — Chile
           </p>
         </div>

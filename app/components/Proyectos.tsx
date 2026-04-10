@@ -148,6 +148,7 @@ export default function Proyectos({ initialProjects }: ProyectosProps) {
                 src={`${project.url}embed`}
                 className="w-full h-full border-none m-0 p-0"
                 allow="encrypted-media"
+                loading="lazy"
                 style={{ flex: 1, minHeight: "480px" }}
               />
             </article>

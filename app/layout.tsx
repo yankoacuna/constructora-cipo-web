@@ -19,19 +19,32 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: SITE_CONFIG.seo.title,
+  metadataBase: new URL("https://constructoracipo.cl"),
+  title: {
+    default: SITE_CONFIG.seo.title,
+    template: `%s | ${SITE_CONFIG.name}`,
+  },
   description: SITE_CONFIG.seo.description,
   keywords: [
-    "constructora",
-    "Talca",
-    "remodelación",
-    "construcción habitacional",
-    "obras civiles",
-    "Cipo",
+    "constructora Talca",
+    "remodelación de casas Talca",
+    "construcción de casas Maule",
+    "obras menores",
+    "Cipo Constructora",
   ],
+  authors: [{ name: "Yanko Acuña", url: "https://yankoacuna.cl" }],
+  creator: "Yanko Acuña",
+  publisher: "Constructora Cipo",
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: SITE_CONFIG.name,
-    description: "Construimos el espacio que mereces. Talca, Chile.",
+    title: SITE_CONFIG.seo.title,
+    description: SITE_CONFIG.seo.description,
+    url: "https://constructoracipo.cl",
+    siteName: SITE_CONFIG.name,
+    locale: "es_CL",
     type: "website",
   },
 };

@@ -62,6 +62,7 @@ export default function Navbar() {
               src="/logo_cipo_mini.jpeg"
               alt="Logo Constructora Cipo"
               fill
+              quality={60}
               className="object-cover"
               sizes="40px"
             />
