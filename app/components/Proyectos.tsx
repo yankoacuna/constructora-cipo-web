@@ -40,7 +40,18 @@ export default function Proyectos({ initialProjects }: ProyectosProps) {
   const [visibleCount, setVisibleCount] = useState(6);
 
   // Fallback to local data if the spreadsheet is empty or fails
-  const dataToUse = initialProjects && initialProjects.length > 0 ? initialProjects : IG_PROJECTS;
+  const [dataToUse, setDataToUse] = useState<Project[]>(initialProjects && initialProjects.length > 0 ? initialProjects : IG_PROJECTS);
+
+  useEffect(() => {
+    fetch('/api/projects')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          setDataToUse(data);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   // Extraer categorías únicas dinámicamente de los proyectos disponibles
   const uniqueCategories = Array.from(new Set(dataToUse.map((p) => p.category))).filter(Boolean);

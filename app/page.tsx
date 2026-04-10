@@ -5,12 +5,8 @@ import Servicios from "./components/Servicios";
 import Proyectos from "./components/Proyectos";
 import Contacto from "./components/Contacto";
 import Footer from "./components/Footer";
-import { getProjects } from "@/lib/getProjects";
 
-export const runtime = 'edge';
-
-export default async function HomePage() {
-  const projectsData = await getProjects();
+export default function HomePage() {
 
   return (
     <main className="relative">
@@ -18,7 +14,7 @@ export default async function HomePage() {
       <Hero />
       <Nosotros />
       <Servicios />
-      <Proyectos initialProjects={projectsData} />
+      <Proyectos />
       <Contacto />
       <Footer />
     </main>
