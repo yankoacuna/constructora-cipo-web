@@ -69,7 +69,7 @@ export default function Footer() {
               </a>
               <a
                 id="footer-whatsapp"
-                href={`https://wa.me/${SITE_CONFIG.phone.whatsapp}`}
+                href={`https://wa.me/${SITE_CONFIG.phone.primary.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full glass-card flex items-center justify-center text-white/50 hover:text-[#25D366] hover:border-[#25D366]/30 transition-all duration-300"
@@ -123,10 +123,18 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={`tel:${SITE_CONFIG.phone.href}`}
+                  href={`tel:${SITE_CONFIG.phone.primary.href}`}
                   className="hover:text-amber-400 transition-colors duration-200"
                 >
-                  {SITE_CONFIG.phone.display}
+                  {SITE_CONFIG.phone.primary.display} (Principal)
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${SITE_CONFIG.phone.secondary.href}`}
+                  className="hover:text-amber-400 transition-colors duration-200"
+                >
+                  {SITE_CONFIG.phone.secondary.display}
                 </a>
               </li>
             </ul>

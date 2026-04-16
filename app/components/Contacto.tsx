@@ -86,18 +86,17 @@ export default function Contacto() {
             <span className="text-gold-gradient">Construir?</span>
           </h2>
           <p className="mt-6 text-white/50 text-lg max-w-xl mx-auto">
-            Cuéntanos tu proyecto y te contactamos a la brevedad con una cotización
-            sin compromiso.
+            Estamos disponibles a través de WhatsApp e Instagram para resolver
+            todas tus dudas y coordinar una visita técnica.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12 items-start">
-          {/* Contact Info */}
+        <div className="max-w-5xl mx-auto">
           <div
-            className="lg:col-span-2 flex flex-col gap-6"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
             style={{
               opacity: visible ? 1 : 0,
-              transform: visible ? "translateX(0)" : "translateX(-24px)",
+              transform: visible ? "translateY(0)" : "translateY(24px)",
               transition: "opacity 0.7s ease, transform 0.7s ease",
             }}
           >
@@ -116,7 +115,7 @@ export default function Contacto() {
               </div>
               <div>
                 <div className="text-white font-semibold">WhatsApp</div>
-                <div className="text-[#25D366] text-sm">Escríbenos ahora</div>
+                <div className="text-[#25D366] text-sm">{SITE_CONFIG.phone.primary.display}</div>
               </div>
             </a>
 
@@ -155,7 +154,8 @@ export default function Contacto() {
             </div>
           </div>
 
-          {/* Form */}
+          {/* Form commented out per request */}
+          {/*
           <div
             className="lg:col-span-3"
             style={{
@@ -166,29 +166,7 @@ export default function Contacto() {
           >
             {submitted ? (
               <div className="glass-card rounded-2xl p-12 text-center">
-                <div className="w-16 h-16 rounded-full bg-amber-400/10 text-amber-400 flex items-center justify-center mx-auto mb-6 animate-float">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3
-                  className="text-2xl font-bold text-white mb-3"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  ¡Mensaje enviado!
-                </h3>
-                <p className="text-white/50">
-                  Gracias por contactarnos. Te responderemos a la brevedad.
-                </p>
-                <button
-                  onClick={() => {
-                    setSubmitted(false);
-                    setForm({ nombre: "", email: "", telefono: "", servicio: "", mensaje: "" });
-                  }}
-                  className="mt-8 px-6 py-2.5 text-sm font-semibold text-black bg-gradient-to-r from-amber-400 to-amber-600 rounded-full hover:from-amber-300 hover:to-amber-500 transition-all duration-300 active:scale-95"
-                >
-                  Enviar otra consulta
-                </button>
+                ... (omitted for brevity in comment)
               </div>
             ) : (
               <form
@@ -196,116 +174,11 @@ export default function Contacto() {
                 onSubmit={handleSubmit}
                 className="glass-card rounded-2xl p-8 flex flex-col gap-5"
               >
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="nombre" className="text-sm font-medium text-white/60">
-                      Nombre *
-                    </label>
-                    <input
-                      id="nombre"
-                      name="nombre"
-                      type="text"
-                      required
-                      value={form.nombre}
-                      onChange={handleChange}
-                      placeholder="Tu nombre completo"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-amber-400/50 focus:bg-white/8 transition-all duration-200"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="email" className="text-sm font-medium text-white/60">
-                      Email *
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="tu@email.com"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-amber-400/50 focus:bg-white/8 transition-all duration-200"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="telefono" className="text-sm font-medium text-white/60">
-                      Teléfono
-                    </label>
-                    <input
-                      id="telefono"
-                      name="telefono"
-                      type="tel"
-                      value={form.telefono}
-                      onChange={handleChange}
-                      placeholder="+56 9 XXXX XXXX"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-amber-400/50 focus:bg-white/8 transition-all duration-200"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="servicio" className="text-sm font-medium text-white/60">
-                      Tipo de proyecto *
-                    </label>
-                    <select
-                      id="servicio"
-                      name="servicio"
-                      required
-                      value={form.servicio}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#0f0f18] border border-white/10 text-white text-sm focus:outline-none focus:border-amber-400/50 transition-all duration-200 appearance-none cursor-pointer"
-                      style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.3)' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 12px center", backgroundSize: "16px" }}
-                    >
-                      <option value="" disabled className="text-white/30">
-                        Selecciona un servicio
-                      </option>
-                      {SERVICIOS_OPTIONS.map((s) => (
-                        <option key={s} value={s} className="bg-[#0f0f18]">
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="mensaje" className="text-sm font-medium text-white/60">
-                    Describe tu proyecto *
-                  </label>
-                  <textarea
-                    id="mensaje"
-                    name="mensaje"
-                    required
-                    rows={5}
-                    value={form.mensaje}
-                    onChange={handleChange}
-                    placeholder="Cuéntanos sobre tu proyecto, superficie aproximada, ubicación, plazo estimado..."
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-amber-400/50 focus:bg-white/8 transition-all duration-200 resize-none"
-                  />
-                </div>
-
-                <button
-                  id="submit-contact"
-                  type="submit"
-                  disabled={sending}
-                  className="w-full py-4 text-base font-bold tracking-wide text-black bg-gradient-to-r from-amber-400 to-amber-600 rounded-xl hover:from-amber-300 hover:to-amber-500 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/25 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  {sending ? (
-                    <>
-                      <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                      </svg>
-                      Enviando...
-                    </>
-                  ) : (
-                    "Solicitar Cotización"
-                  )}
-                </button>
+                ... (omitted for brevity in comment)
               </form>
             )}
           </div>
+          */}
         </div>
       </div>
     </section>

@@ -13,15 +13,19 @@ export const SITE_CONFIG = {
 
   /** Contacto */
   phone: {
-    /** Formato para mostrar en pantalla */
-    display: "+56 9 7148 0952",
-    /** Formato para href tel: */
-    href: "+56971480952",
-    /** Solo dígitos para WhatsApp API (sin el +) */
-    whatsapp: "56971480952",
+    primary: {
+      display: "+56 9 3698 1316",
+      href: "+56936981316",
+      whatsapp: "56936981316",
+    },
+    secondary: {
+      display: "+56 9 7148 0952",
+      href: "+56971480952",
+      whatsapp: "56971480952",
+    },
   },
 
-  email: "contacto@constructoracipo.cl",
+  email: "constructoracipo.26@gmail.com",
 
   /** Redes sociales */
   social: {
@@ -44,5 +48,5 @@ export function getWhatsAppUrl(customMessage?: string): string {
   const msg = encodeURIComponent(
     customMessage ?? SITE_CONFIG.social.whatsappMessage
   );
-  return `https://wa.me/${SITE_CONFIG.phone.whatsapp}?text=${msg}`;
+  return `https://wa.me/${SITE_CONFIG.phone.primary.whatsapp}?text=${msg}`;
 }
